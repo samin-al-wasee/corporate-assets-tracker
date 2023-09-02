@@ -95,7 +95,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom user model
 
-# AUTH_USER_MODEL = "accounts.Account"
+AUTH_USER_MODEL = "authentication.Account"
 
 
 # DRF-related settings
