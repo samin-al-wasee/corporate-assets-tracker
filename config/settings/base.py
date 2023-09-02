@@ -114,4 +114,9 @@ REST_FRAMEWORK = {
 # Login and logout settings
 
 LOGIN_REDIRECT_URL = "/api/v1/core/employees"
-LOGOUT_REDIRECT_URL = "/api/v1/accounts/login"
+LOGOUT_REDIRECT_URL = "/api/v1/auth/login"
+
+
+# Test-related settings
+
+TEST_RUNNER = "django.test.runner.DiscoverRunner"

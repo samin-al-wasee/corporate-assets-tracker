@@ -70,7 +70,7 @@ class Account(AbstractUser):
 
     def send_activation_email(self, being_resent: bool) -> None:
         activation_token = uuid.uuid4()
-        activation_email = f"Welcome, {self.get_full_name()}. Please visit the following link to activate your account: \nhttp://127.0.0.1:8000/api/v1/accounts/activate/{str(activation_token)}"
+        activation_email = f"Welcome, {self.get_full_name()}. Please visit the following link to activate your account: \nhttp://127.0.0.1:8000/api/v1/auth/activate/{str(activation_token)}"
 
         if being_resent:
             Token.objects.filter(target_user=self.id).update(
