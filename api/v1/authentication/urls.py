@@ -1,10 +1,6 @@
 from django.urls import path
 
-from .views import (
-    AccountActivateView,
-    AccountCreateView,
-    ReActivateView,
-)
+from .views import AccountActivateView, AccountCreateView, ReActivateView
 
 app_name = "authentication"
 
