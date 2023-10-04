@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -15,6 +16,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",  # Default
     "django.contrib.staticfiles",  # Default
     "rest_framework",  # 3rd Party
+    "rest_framework_simplejwt",  # 3rd Party
     "api.v1.authentication.apps.AuthenticationConfig",  # Project
     "api.v1.core.apps.CoreConfig",  # Project
 ]
@@ -105,6 +107,7 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ],
@@ -120,3 +123,11 @@ LOGOUT_REDIRECT_URL = "/api/v1/auth/login"
 # Test-related settings
 
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
+
+
+# SimpleJWT settings
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}

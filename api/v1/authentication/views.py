@@ -4,6 +4,7 @@ from rest_framework.exceptions import AuthenticationFailed, NotFound, Permission
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import Account, Token
 from .permissions import IsNotAuthenticated
@@ -14,6 +15,7 @@ from .serializers import AccountSerializer, ActivationSerializer
 class AccountCreateView(CreateAPIView):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsNotAuthenticated]
 
     def get_view_name(self):
