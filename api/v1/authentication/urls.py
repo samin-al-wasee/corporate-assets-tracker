@@ -11,7 +11,7 @@ urlpatterns = [
         name="signup",
     ),
     path(
-        "activate/<str:activation_token>",
+        "activate/<str:activation_token>/",
         AccountActivateView.as_view(),
         name="activation",
     ),
